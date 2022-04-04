@@ -5,7 +5,7 @@ import pickle
 
 data = pd.read_csv("data/mpg.csv", sep=";")
 
-print(data)
+# print(data)
 
 data = data.sample(frac=1)
 
