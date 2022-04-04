@@ -1,0 +1,17 @@
+name: model-training
+on: [push]
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.10' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+      - run: pip install -r requirements.txt
+      - run: python src/train.py
+      - uses: actions/upload-artifact@v3
+        with:
+          name: baummethoden_lr.pickle
+          path: data/models/baummethoden_lr.pickle
+
